@@ -14,3 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Closure
+Route::get('/profile', function(){
+    return "ini adalah profile saya";
+})->name('profile');
+
+// Route name
+Route::get('test', function(){
+    return route('profile');
+});
+
+// Parameter
+Route::get('/profile/{id}', function($id){
+    return $id;
+});
+
+// Controller
+Route::get('/testcontroller', 'TestController@show');
+
+// Resource
+Route::resource('profiles', 'ProfileController');
